@@ -1,14 +1,18 @@
 #include <stdio.h>
 
 int main(){
-    int age = 55;
-    float ega = 5.55555;
-    char gae[4] = "lol";
+    int age;
+    char first[20], last[20];
 
-    printf("Hello, World!#\n");
-    printf("You are %d years old.\n", age);
-    printf("You are %f years old.\n", ega);
-    printf("You are %s years old.\n", gae);
+    printf("Hello, World!#");
+    printf("What is your first name? ");
+    scanf("%s", &first);
+    printf("What is your last name? ");
+    scanf("%s", &last);
+    printf("What is your age? ");
+    scanf("%d", &age);
+    printf("Hi, %s %s,", first, last);
+    printf("You are %d years old.", age);
 
     return 0;
 }
