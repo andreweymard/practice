@@ -1,5 +1,10 @@
+Debug
+.vs
 .vscode
 *.exe
 *.obj
 *.pdb
 *.ilk
+*.sln
+*.vcxproj
+*.vcxproj.*

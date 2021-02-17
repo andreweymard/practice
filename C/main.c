@@ -1,10 +1,10 @@
 #include <stdio.h>
+#pragma warning(disable : 4996)
 
 int main(){
     
     // int age;
     char first[] = "";
-
 
     // printf("ayy %s\n", x);
     // scanf("%s", x);
@@ -12,9 +12,9 @@ int main(){
 
     printf("Hello, World!#\n");
     printf("\nWhat is your first name? \n");
-    scanf("%s", first);
-    printf("%s\n", first);
-    // printf("What is your last name? \n", first);
+    scanf("%c", &first);
+    printf("%c\n", first);
+    //printf("What is your last name? \n", first);
     
     // char last[] = "";
     // scanf("%s", last);
