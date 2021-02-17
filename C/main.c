@@ -1,28 +1,14 @@
 #include <stdio.h>
+#define pi 3.14
 
-int main(){
-    
-    // int age;
-    char first[] = "";
+int main() {
 
+    float radius, area;
 
-    // printf("ayy %s\n", x);
-    // scanf("%s", x);
-    // printf("ayy %s\n", x);
-
-    printf("Hello, World!#\n");
-    printf("\nWhat is your first name? \n");
-    scanf("%s", first);
-    printf("%s\n", first);
-    // printf("What is your last name? \n", first);
-    
-    // char last[] = "";
-    // scanf("%s", last);
-    // printf("%s\n", first);
-    // printf("%s\n", last);
-    // printf("What is your age? ");
-    // scanf("%d", &age);
-    // printf("\nHi, %s %s, You are %d years old.\n", first, last, age);
+    printf("Enter your radius: ");
+    scanf("%f", &radius);
+    area = pi * (radius * radius);
+    printf("\nThe area of your circle is: %f\n", area);
 
     return 0;
 }
