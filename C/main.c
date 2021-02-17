@@ -1,18 +1,28 @@
 #include <stdio.h>
 
 int main(){
-    int age;
-    char first[20], last[20];
+    
+    // int age;
+    char first[] = "";
 
-    printf("Hello, World!#");
-    printf("What is your first name? ");
-    scanf("%s", &first);
-    printf("What is your last name? ");
-    scanf("%s", &last);
-    printf("What is your age? ");
-    scanf("%d", &age);
-    printf("Hi, %s %s,", first, last);
-    printf("You are %d years old.", age);
+
+    // printf("ayy %s\n", x);
+    // scanf("%s", x);
+    // printf("ayy %s\n", x);
+
+    printf("Hello, World!#\n");
+    printf("\nWhat is your first name? \n");
+    scanf("%s", first);
+    printf("%s\n", first);
+    // printf("What is your last name? \n", first);
+    
+    // char last[] = "";
+    // scanf("%s", last);
+    // printf("%s\n", first);
+    // printf("%s\n", last);
+    // printf("What is your age? ");
+    // scanf("%d", &age);
+    // printf("\nHi, %s %s, You are %d years old.\n", first, last, age);
 
     return 0;
 }
