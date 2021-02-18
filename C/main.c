@@ -1,14 +1,9 @@
 #include <stdio.h>
-#define pi 3.14
 
-int main() {
-
-    float radius, area;
-
-    printf("Enter your radius: ");
-    scanf("%f", &radius);
-    area = pi * (radius * radius);
-    printf("\nThe area of your circle is: %f\n", area);
+int main()
+{
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+    printf("This array has %d elements.\n", (sizeof(arr)/sizeof(arr[0])));
 
     return 0;
 }
