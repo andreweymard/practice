@@ -4,22 +4,29 @@
 
 int main() {
 
-    int a, b, c;
-    float root, plus, minus;
-
-    printf("Enter your quadratic equation in the format ax^2 + by + c. \n");
-    printf("a = ");
-    scanf("%d", &a);
-    printf("b = ");
-    scanf("%d", &b);
-    printf("c = ");
+    int c;
+    
+    printf("Enter a number between 1 and 500: ");
     scanf("%d", &c);
 
-    root = sqrt((b * b) - (4 * (a * c)));
-    plus = ((0 - b) + root) / (2 * a);
-    minus = ((0 - b) - root) / (2 * a);
-
-    printf("%f %f", plus, minus);
+    if (c > 0 && c < 101) {
+        printf("a");
+    }
+    else if (c > 100 && c < 201) {
+        printf("b");
+    }
+    else if (c > 200 && c < 301) {
+        printf("c");
+    }
+    else if (c > 300 && c < 401) {
+        printf("d");
+    }
+    else if (c > 400 && c < 501) {
+        printf("e");
+    }
+    else {
+        printf("f");
+    }
 
     return 0;
 }
