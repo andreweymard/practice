@@ -1,14 +1,9 @@
 #include <stdio.h>
 
-int main(int argc, char* argv[])
+int main()
 {
-    if (argc < 3 || argc > 3)
-    {
-        printf("Usage: ./ Firstname Lastname");
-    }
-    else
-    {
-        printf("Hello, %s %s", argv[1], argv[2]);
-    }
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+    printf("This array has %d elements.\n", (sizeof(arr)/sizeof(arr[0])));
+
     return 0;
 }
