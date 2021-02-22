@@ -1,42 +1,26 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <time.h>
+#pragma warning(disable : 4996)
 
 //my take on a dynamic array
 
 int main()
 {
-    char *arr, ans[2], yes[] = "Y";
-    int num, avg = 0, element = 1, yn = 0;
+    unsigned int x = 0, tail = 0, head = 0, coin = 0;
+    time_t t;
 
-    arr = (char *) malloc(element);
-    arr[0] = NULL;
+    printf("How many times would you like to flip the coin? \n");
+    scanf("%d \n", &x);
 
-    while (yn == 0) {
-
-        printf("Enter a number: ");
-        scanf("%d", &num);
-
-        if (arr[0] == NULL) {
-            arr[0] = num;
-        }
-        else {
-            element++;
-            arr = (char *) realloc(arr, element);
-            arr[element - 1] = num;
-        }
-
-        printf("Do you want to enter another number? (Y/N) : ");
-        scanf("%s", &ans);
-        yn = strcmp(&ans, &yes);
+    for (unsigned int i = 0; i <= x; i++) {
+        srand((unsigned) time(&t));
+        coin = rand() % 2;
+        _sleep(100);
+        if (coin == 1) { tail++; } else { head++;}
     }
 
-    for (int i = 0; i < element; i++) {
-        avg += arr[i];
-    }
+    printf("Heads: %d, Tails: %d ", head, tail);
 
-    printf("The average is: %d", avg / element);
-
-    free(arr);
     return(0);
 }
