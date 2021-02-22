@@ -1,42 +1,34 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <time.h>
+#define games 4
+#define players 5
+#define MAX(a, b) (((a) > (b)) ? (a) : (b))
 
-//my take on a dynamic array
+int main() {
+    int a[games][players], b, avg[] = { 0, 0, 0, 0, 0 }, q = 0, n = 0;
 
-int main()
-{
-    char *arr, ans[2], yes[] = "Y";
-    int num, avg = 0, element = 1, yn = 0;
+    for(int i = 0; i < games; i++) {
+        printf("Game #%d\n", i + 1);
 
-    arr = (char *) malloc(element);
-    arr[0] = NULL;
-
-    while (yn == 0) {
-
-        printf("Enter a number: ");
-        scanf("%d", &num);
-
-        if (arr[0] == NULL) {
-            arr[0] = num;
+        for(int j = 0; j < players; j++) {
+            printf("Enter scoring total for Player #%d: ", j + 1);
+            scanf("%d", &b);
+            a[i][j] = b;
+            avg[j] += b;
         }
-        else {
-            element++;
-            arr = (char *) realloc(arr, element);
-            arr[element - 1] = num;
-        }
-
-        printf("Do you want to enter another number? (Y/N) : ");
-        scanf("%s", &ans);
-        yn = strcmp(&ans, &yes);
     }
+    
+    for(int k = 0; k < players; k++) //cal avg for each player
+        avg[k] /= 4;
 
-    for (int i = 0; i < element; i++) {
-        avg += arr[i];
-    }
+    for(int l = 0; l < players; l++) //cal max avg value
+        n = MAX(n, avg[l]);
 
-    printf("The average is: %d", avg / element);
+    for(int m = 0; m < players; m++) //find max avg player number
+        if (n == avg[m]) q = m + 1;
 
-    free(arr);
+    printf("The player with the highest average is player no. %d with %d points.", q, n);
+
     return(0);
 }
