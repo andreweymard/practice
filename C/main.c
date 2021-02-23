@@ -1,47 +1,21 @@
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 
-//my take on a dynamic array
+struct x {
+	int a;
+	char b[2];
+	float c;
+};
 
 int main()
 {
-    char* arr, ans[2], yes[] = "Y";
-    int num, avg = 0, element = 1, yn = 0;
+	struct x x1;
 
-    arr = (char*)malloc(sizeof(char) * element);
-    arr[0] = NULL;
+	x1.a = 5;
+	x1.b[0] = 87;
+	x1.b[1] = 0;
+	x1.c = 5.01;
 
-    if (arr == NULL) {
-        printf("Memory not allocated\nFailure");
-        return 1;
-    }
+	printf("Int: %d, Char: %s, Float: %f", x1.a, x1.b, x1.c);
 
-    while (yn == 0) {
-
-        printf("Enter a number: ");
-        scanf("%d", &num);
-
-        if (arr[0] == NULL) {
-            arr[0] = num;
-        }
-        else {
-            element++;
-            arr = (char*)realloc(arr, element);
-            arr[element - 1] = num;
-        }
-
-        printf("Do you want to enter another number? (Y/N) : ");
-        scanf("%s", &ans);
-        yn = strcmp(&ans, &yes);
-    }
-
-    for (int i = 0; i < element; i++) {
-        avg += arr[i];
-    }
-
-    printf("The average is: %d", avg / element);
-
-    free(arr);
     return(0);
 }
