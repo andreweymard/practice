@@ -1,15 +1,47 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
-int main() {
-	char* lol = (char*)malloc(sizeof(char) * 1975000000);
+//my take on a dynamic array
 
-	if (lol == NULL) {
-		printf("=Memory not allocated\nFailure");
-		return 1;
-	}
-	else {
-		printf("Success");
-		free(lol);
-		return 0;
-	}
+int main()
+{
+    char* arr, ans[2], yes[] = "Y";
+    int num, avg = 0, element = 1, yn = 0;
+
+    arr = (char*)malloc(sizeof(char) * element);
+    arr[0] = NULL;
+
+    if (arr == NULL) {
+        printf("Memory not allocated\nFailure");
+        return 1;
+    }
+
+    while (yn == 0) {
+
+        printf("Enter a number: ");
+        scanf("%d", &num);
+
+        if (arr[0] == NULL) {
+            arr[0] = num;
+        }
+        else {
+            element++;
+            arr = (char*)realloc(arr, element);
+            arr[element - 1] = num;
+        }
+
+        printf("Do you want to enter another number? (Y/N) : ");
+        scanf("%s", &ans);
+        yn = strcmp(&ans, &yes);
+    }
+
+    for (int i = 0; i < element; i++) {
+        avg += arr[i];
+    }
+
+    printf("The average is: %d", avg / element);
+
+    free(arr);
+    return(0);
 }
