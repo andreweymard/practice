@@ -1,21 +1,39 @@
 #include <stdio.h>
+#pragma warning(disable : 4996)
 
-struct x {
-	int a;
-	char b[2];
-	float c;
+struct employee {
+	char lname[20];
+	char fname[20];
+	int idnum;
+	int ssn;
+	char title[20];
 };
 
-int main()
-{
-	struct x x1;
+struct members {
+	struct employee employee[5];
+} emp;
 
-	x1.a = 5;
-	x1.b[0] = 87;
-	x1.b[1] = 0;
-	x1.c = 5.01;
+void store(int num) {
 
-	printf("Int: %d, Char: %s, Float: %f", x1.a, x1.b, x1.c);
+	printf("Enter last name: ");
+	scanf("%s", emp.employee[num].lname);
 
-    return(0);
+	printf("Enter first name: ");
+	scanf("%s", emp.employee[num].fname);
+
+	printf("ID Number: ");
+	scanf("%d", &emp.employee[num].idnum);
+
+	printf("Last 4 digits of SSN: ");
+	scanf("%d", &emp.employee[num].ssn);
+
+	printf("Title: ");
+	scanf("%s", emp.employee[num].title);
+}
+
+int main() {
+	for (int i = 0;i < 5;i++) {
+		store(i);
+	}
+	return 0;
 }
