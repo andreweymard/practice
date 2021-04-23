@@ -1,5 +1,4 @@
 #include <stdio.h>
-#pragma warning(disable : 4996)
 
 struct employee {
 	char lname[20];
