@@ -1,46 +1,34 @@
 #include <stdio.h>
 
-struct employee {
-	char lname[20];
-	char fname[20];
-	int idnum;
-	int ssn;
-	char title[20];
+struct stats {
+	int points;
+	int games;
 };
 
-struct members {
-	struct employee employee[5];
-} emp;
+struct player {
+	struct stats stats[5];
+} ply;
 
 void store(int num) {
-	printf("Enter last name: ");
-	scanf("%s", emp.employee[num].lname);
+	printf("Enter Player %d's point total: ", num);
+	scanf("%d", &ply.stats[num].points);
 
-	printf("Enter first name: ");
-	scanf("%s", emp.employee[num].fname);
-
-	printf("ID Number: ");
-	scanf("%d", &emp.employee[num].idnum);
-
-	printf("Last 4 digits of SSN: ");
-	scanf("%d", &emp.employee[num].ssn);
-
-	printf("Title: ");
-	scanf("%c", emp.employee[num].title);
+	printf("Enter Player %d's game total: ", num);
+	scanf("%d", &ply.stats[num].games);	
 }
 
 void print(int num)	{
-	printf("\nEmployee information for %s %s.\n", emp.employee[num].fname, emp.employee[num].lname);
-	printf("ID: %d\n", emp.employee[num].idnum);
-	printf("SSN: %d\n", emp.employee[num].idnum);
-	printf("Title: %c\n", emp.employee[num].title);
+	double a = ply.stats[num].points;
+	double b = ply.stats[num].games;
+	double average = a / b;
+	printf("Player %d's scoring average was %lf ppg.\n", num, average);
 }
 
 int main() {
-	for (int i = 0; i < 5; i++) {
+	for (int i = 1; i < 6; i++) {
 		store(i);
 	}
-	for (int i = 0; i < 5; i++) {
+	for (int i = 1; i < 6; i++) {
 		print(i);
 	}
 	return 0;
