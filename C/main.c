@@ -1,24 +1,19 @@
 #include <stdio.h>
-#pragma warning(disable : 4996)
-
-struct MyStruct {
-	int number;
-};
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/stat.h>
 
 int main() {
-	struct MyStruct* ptr;
-	struct MyStruct test;
+	int filedescriptor;
 
-	ptr = &test;
+	filedescriptor = open("D:/Code/practice/C/testfile.txt", O_WRONLY | O_CREAT, S_IRWXU);
 
-	test.number = 5;
-	printf("test number = %d", test.number);
-
-	(*ptr).number = 6;
-	printf("\ntest number = %d", test.number);
-
-	ptr->number = 7;
-	printf("\ntest number = %d", test.number);
-
-	return 0;
+	if (filedescriptor < 0)
+	{
+		printf("The open operation failed...");
+		return -1;
+	} else {
+		printf("The open operation succeeded");
+		return 0;
+	}
 }
