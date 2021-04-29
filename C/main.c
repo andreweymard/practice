@@ -1,35 +1,35 @@
 #include <stdio.h>
-
-struct stats {
-	int points;
-	int games;
-};
-
-struct player {
-	struct stats stats[5];
-} ply;
-
-void store(int num) {
-	printf("Enter Player %d's point total: ", num);
-	scanf("%d", &ply.stats[num].points);
-
-	printf("Enter Player %d's game total: ", num);
-	scanf("%d", &ply.stats[num].games);	
-}
-
-void print(int num)	{
-	double a = ply.stats[num].points;
-	double b = ply.stats[num].games;
-	double average = a / b;
-	printf("Player %d's scoring average was %lf ppg.\n", num, average);
-}
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/stat.h>
 
 int main() {
-	for (int i = 1; i < 6; i++) {
-		store(i);
+	int filedescriptor = open("D:/Code/practice/C/testfile.txt", O_WRONLY | O_CREAT, S_IRWXU);
+
+	if (filedescriptor < 0) {
+		printf("The open operation failed...\n");
+		return -1;
+	} else {
+		printf("The open operation succeeded\n");
 	}
-	for (int i = 1; i < 6; i++) {
-		print(i);
+
+	int writertn = write(filedescriptor, "Writing test data to the file", 30);
+
+	if (writertn != 30) {
+		printf("The write operation failed...\n");
+		return -1;
+	} else {
+		printf("The write operation succeeded\n");
 	}
+
+	int closefile = close(filedescriptor);
+
+	if (closefile == -1) {
+		printf("The close operation failed...\n");
+		return -1;
+	} else {
+		printf("The close operation succeeded\n");
+	}
+
 	return 0;
 }
